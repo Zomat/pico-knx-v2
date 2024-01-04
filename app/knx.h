@@ -14,6 +14,9 @@
 extern char knx_source_address[];
 extern char knx_target_address[];
 
+
+bool knx_set_source_address(char addr[]);
+bool knx_set_target_address(char addr[]);
 bool knx_switch(bool state);
 bool knx_dimming(uint8_t value);
 
