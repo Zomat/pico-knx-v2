@@ -15,12 +15,18 @@ execute_process(COMMAND
     WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
 )
 
+FILE(GLOB drivers_executables drivers/*.c)
+FILE(GLOB app_executables app/*.c)
+
 add_executable(${PROGRAM_NAME}
     main.c
+    ${drivers_executables}
+    ${app_executables}
 )
 
 target_include_directories(${PROGRAM_NAME} PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}
+    ${CMAKE_CURRENT_LIST_DIR}/drivers
 )
 
 target_link_libraries(${PROGRAM_NAME}
@@ -28,6 +34,7 @@ target_link_libraries(${PROGRAM_NAME}
     pico_lwip_http
     pico_stdlib
     hardware_adc
+    hardware_i2c
 )
 
 pico_enable_stdio_usb(${PROGRAM_NAME} TRUE)
