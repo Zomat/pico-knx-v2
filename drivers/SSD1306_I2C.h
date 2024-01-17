@@ -15,9 +15,6 @@
 #include "ssd1306_fonts.h"
 #include "ssd1306_image.h"
 
-// Include images
-// ...
-
 #define SSD1306_HEIGHT                  64
 #define SSD1306_WIDTH                   128
 

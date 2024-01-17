@@ -194,6 +194,10 @@ void SSD1306_init(SSD1306 *dev, i2c_inst_t *i2cHandler)
     SSD1306_WriteCmd(dev, SSD1306_PAGE_ADDRESSING_MODE);
     SSD1306_WriteCmd(dev, 0x8D); //charge pump
     SSD1306_WriteCmd(dev, 0x14);
+    // Rotate 180 deg
+    SSD1306_WriteCmd(dev, 0xA1);
+    SSD1306_WriteCmd(dev, 0xC8);
+
     SSD1306_ClearDisplay(dev);
 
     SSD1306_SetFont(dev, "8x8");

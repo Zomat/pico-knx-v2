@@ -26,6 +26,12 @@
     "files.associations": {
         "*.embeddedhtml": "html",
         "stdlib.h": "c",
-        "knx.h": "c"
+        "knx.h": "c",
+        "ssd1306_image.h": "c",
+        "oled.h": "c",
+        "webserver.h": "c",
+        "httpd.h": "c",
+        "cgi.h": "c",
+        "ssd1306_i2c.h": "c"
     }
 }

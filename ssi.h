@@ -1,9 +1,10 @@
 #include "lwip/apps/httpd.h"
 #include "pico/cyw43_arch.h"
 #include "hardware/adc.h"
+#include "app/knx.h"
 
 // SSI tags - tag length limited to 8 bytes by default
-const char * ssi_tags[] = {"volt","temp","led"};
+const char * ssi_tags[] = {"volt","temp","led","knxsa","knxta"};
 
 u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen) {
   size_t printed;
@@ -30,6 +31,16 @@ u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen) {
       else{
         printed = snprintf(pcInsert, iInsertLen, "OFF");
       }
+    }
+    break;
+  case 3: // knxsa -> knx_source_address
+    {
+      printed = snprintf(pcInsert, iInsertLen, knx_source_address);
+    }
+    break;
+  case 4: // knxta -> knx_target_address
+    {
+      printed = snprintf(pcInsert, iInsertLen, knx_target_address);
     }
     break;
   default:
