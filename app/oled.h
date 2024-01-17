@@ -5,7 +5,6 @@
 #include "drivers/ssd1306_image.h"
 
 // Include images
-#include "oledImages/image_my.h"
 #include "oledImages/image_switch.h"
 #include "oledImages/image_dimming.h"
 #include "oledImages/image_address.h"
